@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg-primary text-text-primary;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    @apply font-medium tracking-wide;
+  }
+
+  ::selection {
+    @apply bg-accent/20;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-bg-secondary;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-border-hover;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center h-10 px-5 text-sm font-medium bg-accent text-white rounded-sm transition-all duration-200 hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center h-10 px-5 text-sm font-medium bg-transparent border border-border text-text-primary rounded-sm transition-all duration-200 hover:border-border-hover hover:bg-bg-secondary focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 disabled:opacity-50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center h-10 px-4 text-sm font-medium bg-transparent text-text-secondary rounded-sm transition-colors hover:text-text-primary hover:bg-bg-secondary focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 disabled:opacity-50;
+  }
+
+  .input-field {
+    @apply w-full h-12 px-4 rounded-sm border border-border bg-white text-text-primary placeholder:text-text-muted transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent disabled:opacity-50;
+  }
+
+  .card {
+    @apply bg-bg-card border border-border rounded-sm;
+  }
+}
+
+@layer utilities {
+  .animate-in {
+    animation: animateIn 300ms ease-out forwards;
+  }
+
+  .fade-in {
+    animation: fadeIn 400ms ease-out forwards;
+  }
+
+  .slide-in-from-bottom {
+    animation: slideInFromBottom 400ms ease-out forwards;
+  }
+}
+
+@keyframes animateIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInFromBottom {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
